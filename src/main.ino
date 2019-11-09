@@ -13,10 +13,10 @@ File soubor;
 #define DS3231_I2C_ADDRESS 0x68
 
 void setup() {
-  // Inicializace wire I2C
-  Wire.begin();
   //Nastavení Serial komunikace
   Serial.begin(115200);
+  // Inicializace wire I2C
+  Wire.begin();
   //Spuštění SD knihovny
   if (!SD.begin(29)) {
     Serial.println("SD karta nenalezena");
@@ -26,14 +26,7 @@ void setup() {
 }
 
 void loop() {
-  //soubor = SD.open("DS.csv", FILE_WRITE);
-  // zavoláme funkci getTemp() v souboru onewire.ino a vrátí hodnotu
-  // v promene temperature tu pak vypišeme na serial port
-  //float temperature = getTemp();
-  //Serial.println(temperature);
-  //soubor.print(temperature);
-  //soubor.println();
-  //soubor.close();
+  // Zápis data času a teploty na sd kartu
   zapis();
   //pomalejší zobrazování teplot pro lepší čitelnost
   delay(6000);

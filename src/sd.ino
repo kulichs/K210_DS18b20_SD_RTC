@@ -10,7 +10,6 @@ void zapis() {
   &year);
   //zápis času a datumu
   soubor.print(hour, DEC);
-
   soubor.print(":");
   if (minute<10)
   {

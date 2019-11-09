@@ -1,3 +1,4 @@
+//Funkce getTemp
 float getTemp(){
 
 byte data[12];

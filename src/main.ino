@@ -2,13 +2,19 @@
 #include <SPI.h>
 #include <SD.h>
 #include <OneWire.h>
+#include <Wire.h>
+
 int DS18S20_Pin = 9; //čidlo je připojeno na pinu 9
 
 OneWire ds(DS18S20_Pin);
 
 File soubor;
 
+#define DS3231_I2C_ADDRESS 0x68
+
 void setup() {
+  // Inicializace wire I2C
+  Wire.begin();
   //Nastavení Serial komunikace
   Serial.begin(115200);
   //Spuštění SD knihovny
@@ -30,5 +36,5 @@ void loop() {
   //soubor.close();
   zapis();
   //pomalejší zobrazování teplot pro lepší čitelnost
-  delay(1000);
+  delay(6000);
 }
